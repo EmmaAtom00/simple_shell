@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * getCommand - read the user impput on the shell
+ * getCommand - read the user input on the shell
  *
  * Return: return the number of characters read
  */
 
-int getCommand(void)
+int getCommand(char *argv)
 {
 	size_t n = 10;
 	int size;
@@ -18,6 +18,15 @@ int getCommand(void)
 	{
 		perror("Failed to read input");
 		return (-1);
+	}
+	if (*buffer == '\n')
+	{
+		;
+	}
+	else
+	{
+		printf("readCommand has: %s\n", buffer);
+		tokenize(buffer, argv);
 	}
 
 	return (size);
