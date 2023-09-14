@@ -9,7 +9,7 @@
 void exeCmd(char *buffer[], char *argv)
 {
 	pid_t pid;
-	int exe, i = 0;
+	int exe, i = 0, n = 0;
 
 
 	while (buffer[i] != NULL)
@@ -17,6 +17,11 @@ void exeCmd(char *buffer[], char *argv)
 		pid = fork();
 		if (pid == 0)
 		{
+			/*while (buffer[n] != NULL)
+			{
+				printf("%s\n", buffer[n]);
+				n++;
+			}*/
 			exe = execve(buffer[i], buffer, NULL);
 			if (exe == -1)
 			{

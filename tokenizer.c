@@ -32,16 +32,18 @@ void tokenize(char buffer[], char *argv)
 
 int allocateM(char buffer[], char *argv)
 {
-	int count = 0, i = 0;
+	int count = 0, i = 0, n = 0;
 	char *token, *delim = " ", **exe;
 
-	token = strtok(buffer, delim);
-
-	while(token)
+	while (buffer[n] != '\0')
 	{
-		token = strtok(NULL, delim);
-		count++;
+		if (buffer[n] == ' ')
+			count++;
+		n++;
 	}
+	count += 1;
+
+	printf("%d \n", count);
 
 
 	exe = malloc(sizeof(char) * count);
@@ -52,13 +54,12 @@ int allocateM(char buffer[], char *argv)
 
 	while (token)
 	{
-		exe[i] = strdup(token);
+		exe[i] = token;
 		token = strtok(NULL, delim);
 		i++;
 	}
 
 	exe[count] = NULL;
-	printf("%s %s %d\n",exe[0], exe[count], count);
 	exeCmd(exe, argv);
 	free(exe);
 
