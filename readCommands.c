@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * getCommand - read the user impput on the shell
+ * getCommand - read the user input on the shell
  *
  * Return: return the number of characters read
  */
