@@ -59,8 +59,7 @@ int allocateM(char buffer[], char *argv)
 		i++;
 	}
 
-	exe[count] = NULL;
-	exeCmd(exe, argv);
+	exeCmd(exe, argv, count);
 	free(exe);
 
 	return (count);

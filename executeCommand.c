@@ -6,31 +6,20 @@
  * Return: return nothing
  */
 
-void exeCmd(char *buffer[], char *argv)
+void exeCmd(char *buffer[], char *argv, int count)
 {
 	pid_t pid;
-	int exe, i = 0, n = 0;
+	int exe, i = 0;
+	
+	buffer[count] = NULL;
 
-
-	while (buffer[i] != NULL)
+	pid = fork();
+	if (pid == 0)
 	{
-		pid = fork();
-		if (pid == 0)
-		{
-			/*while (buffer[n] != NULL)
-			{
-				printf("%s\n", buffer[n]);
-				n++;
-			}*/
-			exe = execve(buffer[i], buffer, NULL);
-			if (exe == -1)
-			{
-				perror(argv);
-				break;
-			}
-		}
-		else
-			wait(NULL);
-		i++;
+		exe = execve(buffer[i], buffer, NULL);
+		if (exe == -1)
+			perror(argv);
 	}
+	else
+		wait(NULL);
 }
