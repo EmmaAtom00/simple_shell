@@ -11,9 +11,9 @@ void exeCmd(char *buffer[], char *argv)
 	pid_t pid;
 	int exe, i = 0;
 
+
 	while (buffer[i] != NULL)
 	{
-		printf("execute Command has: %s ", buffer[i]);
 		pid = fork();
 		if (pid == 0)
 		{

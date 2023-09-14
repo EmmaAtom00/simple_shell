@@ -14,6 +14,7 @@ void prints(char *string);
 int getCommand(char *argv);
 void exeCmd(char *buffer[], char *argv);
 void tokenize(char buffer[], char *argv);
+int allocateM(char buffer[], char *argv);
 
 
 #endif

@@ -9,30 +9,58 @@
 
 void tokenize(char buffer[], char *argv)
 {
-	char *token, **exe = NULL, *delim = " ";
-	int count = 0 , i = 0;
-
 	if (buffer == NULL)
 	{
-		perror("Error");
+		perror("Error: no input");
+		exit(97);
 	}
+
+	allocateM(buffer, argv);
+
+}
+
+
+/**
+ * allocateM - function ti allocate memory to the buffer that will contain the path
+ * to exection
+ *
+ * @buffer: the buffer that contains the command from the user
+ * @argv: the vector array
+ *
+ * Return: return te number of commands
+ */
+
+int allocateM(char buffer[], char *argv)
+{
+	int count = 0, i = 0;
+	char *token, *delim = " ", **exe;
+
 	token = strtok(buffer, delim);
 
-	exe = malloc(1024);
-	if (!exe)
-		perror("memeroy allocation failed");
+	while(token)
+	{
+		token = strtok(NULL, delim);
+		count++;
+	}
+
+
+	exe = malloc(sizeof(char) * count);
+	if (exe == NULL)
+		perror("memory allocation failed");
+
+	token = strtok(buffer, delim);
 
 	while (token)
 	{
-		exe[i] = token;
+		exe[i] = strdup(token);
 		token = strtok(NULL, delim);
-		count++;
 		i++;
 	}
-	if (count == 0)
-		perror("No tokens found");
 
-
+	exe[count] = NULL;
+	printf("%s %s %d\n",exe[0], exe[count], count);
 	exeCmd(exe, argv);
 	free(exe);
+
+	return (count);
 }

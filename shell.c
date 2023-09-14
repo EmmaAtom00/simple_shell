@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * main - Main file to continue the prompt
+ * main - Entry point
  *
  * Return: return 0 for success
  */
