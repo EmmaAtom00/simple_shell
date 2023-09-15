@@ -3,29 +3,31 @@
 /**
  * exeCmd - execute the user command
  * @buffer: array of argument
+ * @argv: array of arguments from the CMD
  * Return: return nothing
  */
 
-void exeCmd(char *buffer[], char *argv)
+void exeCmd(char *buffer, char **argv)
 {
+	int exe, status;
 	pid_t pid;
-	int exe, i = 0;
 
-	while (buffer[i] != NULL)
+	/*Checking if buffer is not empty*/
+	if (buffer != NULL)
 	{
-		printf("execute Command has: %s ", buffer[i]);
+		/*Creating a child process*/
 		pid = fork();
-		if (pid == 0)
+		if (pid == 0)/*Checking if fork is successful*/
 		{
-			exe = execve(buffer[i], buffer, NULL);
+			exe = execve(buffer, argv, NULL);/*Executing the command*/
 			if (exe == -1)
-			{
-				perror(argv);
-				break;
-			}
+				perror(argv[0]);/*command failure*/
 		}
+		else if (pid == -1)/*Creating child process failed*/
+			perror("child process failed");
 		else
-			wait(NULL);
-		i++;
+			wait(&status);/*avoiding zombie and orphan process*/
 	}
+	else
+		prerro("No user input");
 }
