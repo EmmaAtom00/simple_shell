@@ -1,44 +1,44 @@
 #include "shell.h"
 
 /**
- * getCommand - read the user input on the shell
- * @argv: array of argument containing the program bin file
- * Return: return the number of characters read
+ * readCommands - function to read commands from user inputs
+ * Return: return the number of input characters
  */
 
-int getCommand(char **argv)
+int readCommands()
 {
+	int readC, argCount;
 	size_t n = 0;
-	int buff_len;
-	char *buffer = NULL;
+	char *command = NULL, *args[MAX_ARG];
 
-	/*Reads the comand from the user*/
-	buff_len = getline(&buffer, &n, stdin);
-
-	if (buff_len == -1)
+	readC = getline(&command, &n, stdin);
+	if (readC == -1)
 	{
-		/* Handle "end of of file" condition (Ctrl+D)*/
 		if (feof(stdin))
-			prints("\nExiting shell.\n");
+		{
+			prints("\nExiting shell\n");
+			exit(0);
+		}
 		else
-			/*Handle failure in reading inpu*/
-			perror("can't read input");
-		free(buffer);/*Free allocated memory by getline*/
-		exit(0);
+			perror("Error reading command");
+		free(command);
 	}
-
-	/* Remove the newline character from the input*/
-	if (buff_len > 0 && buffer[buff_len - 1] == '\n')
-		buffer[buff_len - 1] = '\0';
-
-	if (*buffer == '\n')
-		;
-	else
+	if (readC > 0 && command[readC - 1] == '\n')
+		command[readC - 1] = '\0';
+	argCount = tokenize(command, args);
+	if (argCount > 0)
 	{
-		/*Pass the read command to the executing function*/
-		exeCmd(buffer, argv);
+		if (_strcmp(args[0], "exit") == 0)
+		{
+			prints("Exiting shell.\n");
+			free(command);
+			exit(0);
+		}
+		else if (_strcmp(args[0], "env") == 0)
+			printEnviron();
+		else
+			exeCmd(args[0], args);
 	}
-
-	free(buffer);/*free buffer to avoid memory leakage*/
-	return (buff_len);
+	free(command);
+	return (readC);
 }

@@ -1,20 +1,18 @@
 #include "shell.h"
 
 /**
- * main - Entry point
- * @argc: argument count
+ * main = entry point
+ * @argc: variable count
  * @argv: argument vector
  * Return: return 0 for success
  */
 
-int main(int argc, char **argv)
+int main()
 {
-	(void) argc;
-
 	while (1)
 	{
 		printPrompt();
-		getCommand(argv);
+		readCommands();
 	}
 
 	return (0);
