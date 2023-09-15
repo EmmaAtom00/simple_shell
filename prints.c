@@ -1,17 +1,19 @@
 #include "shell.h"
 
 /**
- * prints - function to print strings
- * @string: the string to be printed to standard output
- * Return: return nothing
+ * prints - function to print just strings
+ * @string: the string to be printed
+ * Return: return the numbers of strings printed
  */
 
-void prints(char *string)
+int prints(char *string)
 {
-	int i = 1;
+	int countString = 0;
 
-	while (string[i] != '\0')
-		i++;
+	while (string[countString] != '\0')
+		countString++;
 
-	write(STDOUT_FILENO, string, i);
+	write(STDOUT_FILENO, string, countString);
+
+	return (countString);
 }

@@ -1,25 +1,25 @@
 #include "shell.h"
 
 /**
- * tokenize - function that takes a user input string and an array to store
- * command and arguments
- * @input: input from the user
- * @args: storage for the tokenized tokens
- * Return: return number of arguments
+ * tokenize - funtion to tokenize the commands from the user
+ * @command: the command from the user
+ * @args: the buffer where our tokens will be stored
+ * Return: return the numbers of tokens we have in the buffer
  */
 
-int tokenize(char *input, char *args[])
+int tokenize(char *buffer, char *args[])
 {
-	int argCount = 0;
-	char *delim = " ";
-	char *token = strtok(input, delim);
+	char *token, *delim = " ";
+	int count = 0;
 
-	while (token != NULL && argCount < MAX_ARG)
+	token = strtok(buffer, delim);
+
+	while (token != NULL && count < MAX_ARG)
 	{
-		args[argCount++] = token;
+		args[count++] = token;
 		token = strtok(NULL, delim);
 	}
 
-	args[argCount] = NULL;
-	return (argCount);
+	args[count] = NULL;
+	return (count);
 }

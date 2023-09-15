@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- * printPrompt - function to print the CLI prompt
- *
- * Return: returns nothing
+ * printPrompt - function to display the shell prompt
+ * Rreturn: returns nothing
  */
 
-void printPrompt(void)
+void printPrompt()
 {
-	/*The infinite prompt on the terminal, can be modified*/
-	write(STDOUT_FILENO, "($) ", 4);
+	char *prompt = "($) ";
+
+	prints(prompt);
 }

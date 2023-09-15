@@ -1,37 +1,32 @@
 #include "shell.h"
 
 /**
- * exeCmd - execute the user command
- * @buffer: array of argument
- * @argv: array of arguments from the CMD
- * Return: return nothing
+ * exeCmd - function to execute the commands
+ * @command: the command to be executed
+ * @argv: array to support execution
+ * Return: rerturn nothing
  */
 
-void exeCmd(char *buffer, char **argv)
+void exeCmd(char *command, char **argv)
 {
-	int exe, status;
 	pid_t pid;
+	int status, exe;
 
-	/*Checking if buffer is not empty*/
-	if (buffer != NULL)
+	pid = fork();
+	if (pid == -1)
 	{
-		/*Creating a child process*/
-		pid = fork();
-		if (pid == 0)/*Checking if fork is successful*/
+		perror("cannot create a process");
+		exit(EXIT_FAILURE);
+	}
+	else if (pid == 0)
+	{
+		exe = execve(command, argv, NULL);
+		if (exe == -1)
 		{
-			exe = execve(buffer, argv, NULL);/*Executing the command*/
-			if (exe == -1)
-			{
-				perror(buffer);/*command failure*/
-				perror(argv[0]);
-				exit(EXIT_FAILURE);
-			}
+			perror(command);
+			exit(EXIT_FAILURE);
 		}
-		else if (pid == -1)/*Creating child process failed*/
-			perror("child process failed");
-		else
-			wait(&status);/*avoiding zombie and orphan process*/
 	}
 	else
-		perror("No user input");
+		wait(&status);
 }

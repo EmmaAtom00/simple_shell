@@ -1,22 +1,22 @@
-#ifndef SHELL
-#define SHELL
+#ifndef SHELL_H
+#define SHELL_H
 
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <string.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 
-#define MAX_INPUT 256
 #define MAX_ARG 10
+#define MAX_INPUT 256
 
-void printPrompt(void);
-void prints(char *string);
-int getCommand(char **argv);
-void exeCmd(char *buffer, char **argv);
-void printEnvironment();
-int tokenize(char *input, char *args[]);
-void completeGetCommand(int argCount, char *args[], char *buffer, char **argv);
+int readCommands();
+int _strcmp(const char *str1, const char *str2);
+int tokenize (char *buffer, char *args[]);
+void printPrompt();
+void exeCmd(char *command, char **argv);
+void printEnviron();
+int prints(char *string);
 
 #endif
