@@ -2,20 +2,19 @@
 
 /**
  * main - Entry point
- *
+ * @argc: argument count
+ * @argv: argument vector
  * Return: return 0 for success
  */
 
 int main(int argc, char **argv)
 {
-	int n = 1;
-
 	(void) argc;
-	
-	while (n == 1)
+
+	while (1)
 	{
 		printPrompt();
-		getCommand(argv[0]);
+		getCommand(argv);
 	}
 
 	return (0);
