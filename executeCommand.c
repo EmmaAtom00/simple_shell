@@ -21,7 +21,11 @@ void exeCmd(char *buffer, char **argv)
 		{
 			exe = execve(buffer, argv, NULL);/*Executing the command*/
 			if (exe == -1)
-				perror(argv[0]);/*command failure*/
+			{
+				perror(buffer);/*command failure*/
+				perror(argv[0]);
+				exit(EXIT_FAILURE);
+			}
 		}
 		else if (pid == -1)/*Creating child process failed*/
 			perror("child process failed");
@@ -29,5 +33,5 @@ void exeCmd(char *buffer, char **argv)
 			wait(&status);/*avoiding zombie and orphan process*/
 	}
 	else
-		prerro("No user input");
+		perror("No user input");
 }
