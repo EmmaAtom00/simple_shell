@@ -1,6 +1,5 @@
 #include "shell.h"
 
-
 << << << < HEAD
  /**
  * tokenize - function to tokenize the buffer and store in  s 2d array
@@ -8,7 +7,6 @@
  * @argv: pointer to the execution file name
  * Return: return the number of words
  */
-
 void tokenize(char buffer[], char *argv)
 {
 	char *token, **exe = NULL, *delim = " ";
@@ -19,11 +17,9 @@ void tokenize(char buffer[], char *argv)
 		perror("Error");
 	}
 	token = strtok(buffer, delim);
-
 	exe = malloc(1024);
 	if (!exe)
 		perror("memory allocation failed");
-
 	while (token)
 	{
 		exe[i] = token;
@@ -34,7 +30,6 @@ void tokenize(char buffer[], char *argv)
 	if (count == 0)
 		perror("No tokens found");
 
-
 	exeCmd(exe, argv);
 	free(exe);
 == == ==
@@ -44,7 +39,6 @@ void tokenize(char buffer[], char *argv)
  * @args: the buffer where our tokens will be stored
  * Return: return the numbers of tokens we have in the buffer
  */
-
 int tokenize(char *buffer, char *args[])
 {
 	char *token, *delim = " ";
