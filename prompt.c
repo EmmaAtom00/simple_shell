@@ -5,7 +5,7 @@
  * Rreturn: returns nothing
  */
 
-void printPrompt()
+void printPrompt(void)
 {
 	char *prompt = "($) ";
 

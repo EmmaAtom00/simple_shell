@@ -1,13 +1,11 @@
 #include "shell.h"
 
 /**
- * main = entry point
- * @argc: variable count
- * @argv: argument vector
+ * main - entry point
  * Return: return 0 for success
  */
 
-int main()
+int main(void)
 {
 	while (1)
 	{

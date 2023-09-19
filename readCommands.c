@@ -5,7 +5,7 @@
  * Return: return the number of input characters
  */
 
-int readCommands()
+int readCommands(void)
 {
 	int readC, argCount;
 	size_t n = 0;

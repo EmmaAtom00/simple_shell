@@ -2,7 +2,7 @@
 
 /**
  * tokenize - funtion to tokenize the commands from the user
- * @command: the command from the user
+ * @buffer: the command from the user
  * @args: the buffer where our tokens will be stored
  * Return: return the numbers of tokens we have in the buffer
  */
