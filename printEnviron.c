@@ -1,8 +1,10 @@
 #include "shell.h"
+#include "printEnviron.h"
 
 /**
  * printEnviron - function to print the current encironment
- * Return: return nothing
+ *
+ * Return: void
  */
 
 void printEnviron(void)
