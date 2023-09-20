@@ -17,7 +17,6 @@ int readCommands(char **environ)
 	{
 		if (feof(stdin))
 		{
-			prints("\nExiting shell\n");
 			exit(0);
 		}
 		else
@@ -31,7 +30,6 @@ int readCommands(char **environ)
 	{
 		if (_strcmp(args[0], "exit") == 0)
 		{
-			prints("Exiting shell.\n");
 			free(command);
 			exit(0);
 		}
