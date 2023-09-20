@@ -13,10 +13,11 @@
 
 int readCommands(void);
 int _strcmp(const char *str1, const char *str2);
-int tokenize(char *buffer, char *args[]);
+void int tokenize(char *buffer, char *args[]);
 void printPrompt(void);
 void exeCmd(char *command, char **argv);
 void printEnviron(void);
 int prints(char *string);
+
 
 #endif

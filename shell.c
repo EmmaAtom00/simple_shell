@@ -2,8 +2,8 @@
 
 /**
  * main - entry point
- * @argc: Arguments counts
- * @argv: Arguments vector
+ * @argc: Arguments counts(unused)
+ * @argv: Arguments vector(unused)
  * Return: return 0 for success
  */
 
