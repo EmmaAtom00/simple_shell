@@ -7,12 +7,15 @@
  * Return: return 0 for success
  */
 
-int main(void)
+int main(int argc, char **argv, char **env)
 {
+	(void) argc;
+
+	prints(argv[0]);
 	while (1)
 	{
 		printPrompt();
-		readCommands();
+		readCommands(env);
 	}
 
 	return (0);
