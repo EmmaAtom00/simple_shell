@@ -12,7 +12,8 @@ int main(int argc, char **argv, char **env)
 {
 	(void) argc;
 
-	prints(argv[0]);
+	argv[0] = "program name";
+
 	while (1)
 	{
 		printPrompt();

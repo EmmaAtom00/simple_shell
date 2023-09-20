@@ -11,11 +11,13 @@
 #define MAX_ARG 10
 #define MAX_INPUT 256
 
+
 int readCommands(char **environ);
 int _strcmp(const char *str1, const char *str2);
 int tokenize(char *buffer, char *args[]);
 void printPrompt(void);
-void exeCmd(char *command, char **argv);
+void exeCmd(char *command, char **argv, char **en);
+char *extPath(char **environ);
 void printEnviron(char **environ);
 int prints(char *string);
 

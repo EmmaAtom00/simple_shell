@@ -38,7 +38,7 @@ int readCommands(char **environ)
 		else if (_strcmp(args[0], "env") == 0)
 			printEnviron(environ);
 		else
-			exeCmd(args[0], args);
+			exeCmd(args[0], args, environ);
 	}
 	free(command);
 	return (readC);
