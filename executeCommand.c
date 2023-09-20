@@ -7,7 +7,7 @@
  * Return: rerturn nothing
  */
 
-void exeCmd(char *command, char **argv, char **en)
+void exeCmd(char *command, char **argv, char **en, char **arg)
 {
 	pid_t pid;
 	int status, exe;
@@ -23,7 +23,7 @@ void exeCmd(char *command, char **argv, char **en)
 		exe = execve(command, argv, en);
 		if (exe == -1)
 		{
-			perror(command);
+			perror(arg[0]);
 			exit(EXIT_FAILURE);
 		}
 	}

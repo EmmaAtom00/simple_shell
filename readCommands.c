@@ -6,7 +6,7 @@
  * Return: return the number of input characters
  */
 
-int readCommands(char **environ)
+int readCommands(char **environ, char **argv)
 {
 	int readC, argCount;
 	size_t n = 0;
@@ -36,7 +36,7 @@ int readCommands(char **environ)
 		else if (_strcmp(args[0], "env") == 0)
 			printEnviron(environ);
 		else
-			exeCmd(args[0], args, environ);
+			exeCmd(args[0], args, environ, argv);
 	}
 	free(command);
 	return (readC);

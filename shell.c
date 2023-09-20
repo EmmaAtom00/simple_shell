@@ -12,12 +12,10 @@ int main(int argc, char **argv, char **env)
 {
 	(void) argc;
 
-	argv[0] = "program name";
-
 	while (1)
 	{
 		printPrompt();
-		readCommands(env);
+		readCommands(env, argv);
 	}
 
 	return (0);
