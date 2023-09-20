@@ -2,6 +2,7 @@
 
 /**
  * printEnviron - function to print the current encironment
+ * @environ: environment variable
  *
  * Return: void
  */

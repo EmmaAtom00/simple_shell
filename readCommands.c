@@ -2,6 +2,7 @@
 
 /**
  * readCommands - function to read commands from user inputs
+ * @environ: envronment variable
  * Return: return the number of input characters
  */
 

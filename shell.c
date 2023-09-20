@@ -4,6 +4,7 @@
  * main - entry point
  * @argc: Arguments counts(unused)
  * @argv: Arguments vector(unused)
+ * @env: environment variables
  * Return: return 0 for success
  */
 
