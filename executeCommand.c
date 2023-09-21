@@ -5,6 +5,7 @@
  * @command: the command to be executed
  * @argv: array to support execution
  * @arg: argument vector
+ * @en: environment variable
  * Return: rerturn nothing
  */
 
