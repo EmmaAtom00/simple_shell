@@ -14,7 +14,6 @@ int main(int argc, char **argv, char **env)
 
 	while (1)
 	{
-		printPrompt();
 		readCommands(env, argv);
 	}
 
