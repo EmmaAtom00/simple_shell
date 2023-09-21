@@ -3,6 +3,7 @@
 /**
  * readCommands - function to read commands from user inputs
  * @environ: envronment variable
+ * @argv: argument vector
  * Return: return the number of input characters
  */
 

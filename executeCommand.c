@@ -4,6 +4,7 @@
  * exeCmd - function to execute the commands
  * @command: the command to be executed
  * @argv: array to support execution
+ * @arg: argument vector
  * Return: rerturn nothing
  */
 
