@@ -18,6 +18,7 @@ int readCommands(char **environ, char **argv)
 	{
 		if (feof(stdin))
 		{
+			free(command);
 			exit(0);
 		}
 		else
