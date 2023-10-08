@@ -34,7 +34,7 @@ int readCommand(char **argv)
 		if (_strcmp(buff, "exit") == 0)
 		{
 			free(buff);
-			exit();
+			exit(0);
 		}
 		else
 			exeCmd(argsC, argv);
