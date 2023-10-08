@@ -3,6 +3,7 @@
 /**
  * exeCmd - function to execute userr command
  * @argsC: an array of commands from the user
+ * @argv: argument vector
  * Return: return 0 om success
  */
 
