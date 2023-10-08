@@ -14,6 +14,8 @@ int main(int argc, char **argv, char **env)
 
 	while (1)
 	{
+		if (isatty(0))
+			printPrompt();
 		readCommands(env, argv);
 	}
 

@@ -6,7 +6,7 @@
  * Return: return 0 om success
  */
 
-int exeCmd(char *argsC[])
+int exeCmd(char *argsC[], char **argv)
 {
 	pid_t pid;
 	int exe, status;
@@ -23,6 +23,7 @@ int exeCmd(char *argsC[])
 		exe = execve(argsC[0], argsC, NULL);
 		if (exe == -1)
 		{
+			perror(argv[0]);
 			exit(EXIT_FAILURE);
 		}
 	}

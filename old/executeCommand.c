@@ -13,6 +13,7 @@ void exeCmd(char *command, char **argv, char **en, char **arg)
 {
 	pid_t pid;
 	int status, exe;
+	char *newcommand;
 
 	pid = fork();
 	if (pid == -1)
@@ -22,7 +23,8 @@ void exeCmd(char *command, char **argv, char **en, char **arg)
 	}
 	else if (pid == 0)
 	{
-		exe = execve(command, argv, en);
+		newcommand = extPath(command);
+		exe = execve(newcommand, argv, en);
 		if (exe == -1)
 		{
 			perror(arg[0]);

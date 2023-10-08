@@ -6,31 +6,35 @@
  * Return: return the path
  */
 
-char *extPath(char **environ)
+char *extPath(char *arg)
 {
-	int i = 0;
-	char *path, *pathKey, *pathValue;
-	char *envi = environ[i], *buff;
+	char *path = getenv("PATH"), *path_cp;
+	char path_to_exe[1024], *dir, *command;
 
-	while (envi != NULL)
+	if (path)
 	{
-		buff = envi;
+		path_cp = path;
+		dir = strtok(path_cp, ":");
 
-		pathKey = strtok(envi, "=");
-		pathValue = strtok(NULL, "=");
-
-		if (_strcmp(pathKey, "PATH") == 0)
+		while (dir)
 		{
-			path = buff;
-			break;
-		}
-		i++;
-		envi = environ[i];
-	}
+			snprintf(path_to_exe, sizeof(path_to_exe), "%s/%s", dir, arg);
 
-	prints(path);
-	putchar('\n');
-	prints(pathValue);
-	putchar('\n');
-	return (path);
+			if (access(path_to_exe, X_OK) == 0)
+			{
+				command = path_to_exe;
+				break;
+			}
+			dir = strtok(NULL, ":");
+		}
+	}
+	if (command)
+		return (command);
+	else
+		exit(EXIT_FAILURE);
+}
+
+char *addPath(char *path, char *arg)
+{
+	return (arg);
 }

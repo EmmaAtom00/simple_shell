@@ -5,12 +5,13 @@
  * Return: return 0 on sucess
  */
 
-int main(void)
+int main(int argc, char **argv)
 {
+	(void) argc;
 	/* Loop to make our programming continue displaying a prompt */
 	while (1)
 	{
-		readCommand();
+		readCommand(argv);
 		/*function to receive user input from stdin before tokenization*/
 	}
 

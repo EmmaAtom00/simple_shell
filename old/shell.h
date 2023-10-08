@@ -17,8 +17,9 @@ int _strcmp(const char *str1, const char *str2);
 int tokenize(char *buffer, char *args[]);
 void printPrompt(void);
 void exeCmd(char *command, char **argv, char **en, char **arg);
-char *extPath(char **environ);
+char *extPath(char *arg);
 void printEnviron(char **environ);
+char *addPath(char *path, char *arg);
 int prints(char *string);
 
 

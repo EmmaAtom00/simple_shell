@@ -10,9 +10,9 @@
 
 #define MAX_ARG 125
 
-int readCommand(void);
+int readCommand(char **argv);
 int tokenize(char *command, char *argsC[]);
-int exeCmd(char *argsC[]);
+int exeCmd(char *argsC[], char **argv);
 char *removeNC(char *str, int len);
 
 #endif

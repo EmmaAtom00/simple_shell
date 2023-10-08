@@ -6,11 +6,11 @@
  * Return: return number of characters read from the standard input
  */
 
-int readCommand(void)
+int readCommand(char **argv)
 {
 	size_t n = 0;
 	char *buff = NULL, *command, *argsC[MAX_ARG];
-	int size, argcount;
+	int size;
 
 	size = getline(&buff, &n, stdin);
 	if (size == -1)
@@ -28,9 +28,9 @@ int readCommand(void)
 	}
 
 	command = removeNC(buff, size);
-	argcount = tokenize(command, argsC);
+	tokenize(command, argsC);
 
-	exeCmd(argsC);
+	exeCmd(argsC, argv);
 
 	free(buff);
 	return (size);
