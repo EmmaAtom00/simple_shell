@@ -8,11 +8,12 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
-#define MAX_ARG 125
+#define MAX_ARG 20
 
 int readCommand(char **argv);
 int tokenize(char *command, char *argsC[]);
 int exeCmd(char *argsC[], char **argv);
+int _strcmp(const char *str1, const char *str2);
 char *removeNC(char *str, int len);
 
 #endif

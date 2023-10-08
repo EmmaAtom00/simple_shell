@@ -33,8 +33,3 @@ char *extPath(char *arg)
 	else
 		exit(EXIT_FAILURE);
 }
-
-char *addPath(char *path, char *arg)
-{
-	return (arg);
-}
