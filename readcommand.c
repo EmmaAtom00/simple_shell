@@ -4,14 +4,15 @@
  * readCommand - Function to take users input
  *
  * @argv: argument vector
+ * @env: environment variable
  * Return: return number of characters read from the standard input
  */
 
-int readCommand(char **argv)
+int readCommand(char **argv, char **env)
 {
 	size_t n = 0;
 	char *buff = NULL, *argsC[MAX_ARG];
-	int size, argcount;
+	int size;
 
 	size = getline(&buff, &n, stdin);
 	if (size == -1)
@@ -27,19 +28,8 @@ int readCommand(char **argv)
 	}
 
 	buff = removeNC(buff, size);
-	argcount = tokenize(buff, argsC);
-
-	if (argcount > 0)
-	{
-		if (_strcmp(buff, "exit") == 0)
-		{
-			free(buff);
-			exit(0);
-		}
-		else
-			exeCmd(argsC, argv);
-	}
-
+	tokenize(buff, argsC);
+	exeCmd(argsC, argv, env);
 
 	free(buff);
 	return (size);

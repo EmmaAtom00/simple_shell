@@ -24,6 +24,7 @@ void exeCmd(char *command, char **argv, char **en, char **arg)
 	else if (pid == 0)
 	{
 		newcommand = extPath(command);
+		printf("%s\n", newcommand);
 		exe = execve(newcommand, argv, en);
 		if (exe == -1)
 		{
