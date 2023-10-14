@@ -12,7 +12,6 @@ char *getPATH(char **env)
 	int i = 0;
 	char **environ = env;
 	char *pathKey, *pathValue, *path;
-	char *Opath = getenv("PATH");
 
 	while (environ[i] != NULL)
 	{
