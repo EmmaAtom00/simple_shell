@@ -23,7 +23,7 @@ int exeCmd(char *argsC[], char **argv, char **env)
 	}
 	else if (pid == 0)
 	{
-		command = rightPath(argsC[0]);
+	/*	command = rightPath(argsC[0]);*/
 		exe = execve(command, argsC, env);
 		if (exe == -1)
 		{

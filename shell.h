@@ -13,6 +13,7 @@
 int readCommand(char **argv, char **env);
 int _strlen(char *str);
 char *rightPath(char *arg);
+int prints(char *str);
 char *Cstrcat(char *str1, char *str2);
 char *_strcat(const char *str1, const char *str2);
 char *getPATH(char **env);
