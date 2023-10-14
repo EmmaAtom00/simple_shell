@@ -41,6 +41,8 @@ char *rightPath(char *arg)
 
 	if (path)
 	{
+		if (access(arg, X_OK) == 0)
+			return (arg);
 		path_cp = path;
 		dir = strtok(path_cp, ":");
 
@@ -50,7 +52,6 @@ char *rightPath(char *arg)
 			if (access(exe, X_OK) == 0)
 			{
 				command = exe;
-				printf("%s\n", command);
 				return (command);
 				free(exe);
 			}
