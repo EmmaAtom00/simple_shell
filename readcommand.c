@@ -29,6 +29,7 @@ int readCommand(char **argv, char **env)
 
 	buff = removeNC(buff, size);
 	tokenize(buff, argsC);
+	built_in(argsC[0], buff);
 	exeCmd(argsC, argv, env);
 
 	free(buff);
