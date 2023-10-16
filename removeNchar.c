@@ -9,6 +9,8 @@
 
 char *removeNC(char *str, int len)
 {
+	if (_strcmp(str, "\n") == 0)
+		return(str);
 	if (len > 0 && str[len - 1] == '\n')
 		str[len - 1] = '\0';
 
