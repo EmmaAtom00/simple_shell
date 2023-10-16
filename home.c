@@ -8,7 +8,21 @@
 
 int home(char **argv, char **env)
 {
+	char *buff, *argsC[MAX_ARG];
+	int size;
+
 	prompt();
-	readCommand(argv, env);
+	buff = readCommand();
+	size = _strlen(buff);
+	buff = removeNC(buff, size);
+	tokenize(buff, argsC);
+	built_in(argsC[0], buff);
+
+	if (_strcmp(buff, "\n") == 0)
+		;
+	else
+		exeCmd(argsC, argv, env);
+
+	free(buff);
 	return (0);
 }

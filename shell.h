@@ -7,10 +7,11 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <stdbool.h>
 
 #define MAX_ARG 20
 
-int readCommand(char **argv, char **env);
+char *readCommand(void);
 int _strlen(char *str);
 int home(char **argv, char **env);
 int prompt(void);

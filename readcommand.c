@@ -8,10 +8,10 @@
  * Return: return number of characters read from the standard input
  */
 
-int readCommand(char **argv, char **env)
+char *readCommand(void)
 {
 	size_t n = 0;
-	char *buff = NULL, *argsC[MAX_ARG];
+	char *buff = NULL;
 	int size;
 
 	size = getline(&buff, &n, stdin);
@@ -27,16 +27,5 @@ int readCommand(char **argv, char **env)
 		free(buff);
 	}
 
-	buff = removeNC(buff, size);
-
-	tokenize(buff, argsC);
-	built_in(argsC[0], buff);
-
-	if (_strcmp(buff, "\n") == 0)
-		;
-	else
-		exeCmd(argsC, argv, env);
-
-	free(buff);
-	return (size);
+	return (buff);
 }

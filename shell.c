@@ -12,7 +12,7 @@ int main(int argc, char **argv, char **env)
 {
 	(void) argc;
 	/* Loop to make our programming continue displaying a prompt */
-	while (1)
+	while (true)
 	{
 		home(argv, env);
 		/*function to receive user input from stdin before tokenization*/
