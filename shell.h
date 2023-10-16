@@ -12,6 +12,8 @@
 
 int readCommand(char **argv, char **env);
 int _strlen(char *str);
+int home(char **argv, char **env);
+int prompt(void);
 char *rightPath(char *arg);
 int prints(char *str);
 int built_in(char *var, char *buff);
