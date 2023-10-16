@@ -3,8 +3,6 @@
 /**
  * readCommand - Function to take users input
  *
- * @argv: argument vector
- * @env: environment variable
  * Return: return number of characters read from the standard input
  */
 

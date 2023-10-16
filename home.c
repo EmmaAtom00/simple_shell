@@ -2,8 +2,9 @@
 
 /**
  * home - all functions home
+ * @argv: the argument vector
+ * @env: the environ
  * Return: return 0 on success and -1 otherwise
- *
  */
 
 int home(char **argv, char **env)
