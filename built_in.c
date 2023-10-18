@@ -4,6 +4,7 @@
  * built_in - function to help with built in functions
  * @var: variable conatining the built_in function
  * @buff: buffer containing space to be freed
+ * @env: environment variable
  * Return: return 0 on success
  */
 
