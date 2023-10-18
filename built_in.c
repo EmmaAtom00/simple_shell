@@ -7,12 +7,27 @@
  * Return: return 0 on success
  */
 
-int built_in(char *var, char *buff)
+int built_in(char **var, char *buff)
 {
-	if (_strcmp(var, "exit") == 0)
+	char *str;
+	int status, count = 0;
+
+	while (var[count] != NULL)
+		count++;
+
+	if (_strcmp(var[0], "exit") == 0)
 	{
-		free(buff);
-		exit(0);
+		if (count > 1)
+		{
+			status = strtol(var[1], &str, 10);
+			free(buff);
+			exit(status);
+		}
+		else
+		{
+			free(buff);
+			exit(0);
+		}
 	}
 	return (0);
 }

@@ -17,7 +17,7 @@ int home(char **argv, char **env)
 	size = _strlen(buff);
 	buff = removeNC(buff, size);
 	tokenize(buff, argsC);
-	built_in(argsC[0], buff);
+	built_in(argsC, buff);
 
 	if (_strcmp(buff, "\n") == 0)
 		;
