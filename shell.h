@@ -8,10 +8,12 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <stdbool.h>
+#include <limits.h>
 
 #define MAX_ARG 20
 
 char *readCommand(void);
+int changeDirectory(char **var);
 int _strlen(char *str);
 int home(char **argv, char **env);
 int prompt(void);
