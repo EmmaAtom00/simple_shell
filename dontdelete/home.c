@@ -23,7 +23,7 @@ int home(char **argv, char **env)
 		;
 	else
 	{
-		checkexe(argsC, argv, env);
+		exeCmd(argsC, argv, env);
 	}
 
 	free(buff);
