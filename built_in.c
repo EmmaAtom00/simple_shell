@@ -7,10 +7,10 @@
  * Return: return 0 on success
  */
 
-int built_in(char **var, char *buff)
+int built_in(char **var, char *buff, char **env)
 {
 	char *str;
-	int status, count = 0;
+	int status, count = 0, i = 0;
 
 	while (var[count] != NULL)
 		count++;
@@ -27,6 +27,15 @@ int built_in(char **var, char *buff)
 		{
 			free(buff);
 			exit(0);
+		}
+	}
+
+	if (var[0] == "env")
+	{
+		while (env)
+		{
+			prints(env[i]);
+			i++;
 		}
 	}
 	return (0);

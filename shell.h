@@ -20,7 +20,7 @@ int home(char **argv, char **env);
 int prompt(void);
 char *rightPath(char *arg);
 int prints(char *str);
-int built_in(char **var, char *buff);
+int built_in(char **var, char *buff, char **env);
 char *Cstrcat(char *str1, char *str2);
 char *_strcat(const char *str1, const char *str2);
 char *getPATH(char **env);
