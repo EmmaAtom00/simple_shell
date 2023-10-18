@@ -30,11 +30,12 @@ int built_in(char **var, char *buff, char **env)
 		}
 	}
 
-	if (var[0] == "env")
+	if (_strcmp(var[0], "env") == 0)
 	{
-		while (env)
+		while (env[i] != NULL)
 		{
 			prints(env[i]);
+			putchar('\n');
 			i++;
 		}
 	}
