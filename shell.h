@@ -14,6 +14,7 @@
 
 char *readCommand(void);
 int changeDirectory(char **var);
+int checkexe(char **argsC, char **argv, char **env);
 int _strlen(char *str);
 int home(char **argv, char **env);
 int prompt(void);

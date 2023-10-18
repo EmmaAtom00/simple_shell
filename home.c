@@ -22,7 +22,9 @@ int home(char **argv, char **env)
 	if (_strcmp(buff, "\n") == 0)
 		;
 	else
-		exeCmd(argsC, argv, env);
+	{
+		checkexe(argsC, argv, env);
+	}
 
 	free(buff);
 	return (0);
