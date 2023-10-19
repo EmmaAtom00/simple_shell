@@ -9,6 +9,7 @@
 #include <sys/wait.h>
 #include <stdbool.h>
 #include <limits.h>
+#include "shell.h"
 
 #define MAX_ARG 20
 
