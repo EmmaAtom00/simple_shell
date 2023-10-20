@@ -14,15 +14,14 @@ int home(char **argv, char **env)
 
 	prompt();
 	buff = readCommand();
-	size = _strlen(buff);
-	buff = removeNC(buff, size);
-	tokenize(buff, argsC);
-	built_in(argsC, buff, env);
-
-	if (_strcmp(buff, "\n") == 0)
+	if (is_space(buff))
 		;
 	else
 	{
+		size = _strlen(buff);
+		buff = removeNC(buff, size);
+		tokenize(buff, argsC);
+		built_in(argsC, buff, env);
 		exeCmd(argsC, argv, env);
 	}
 

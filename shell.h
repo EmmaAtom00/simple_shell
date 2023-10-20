@@ -28,5 +28,7 @@ int tokenize(char *command, char *argsC[]);
 int exeCmd(char *argsC[], char **argv, char **env);
 int _strcmp(const char *str1, const char *str2);
 char *removeNC(char *str, int len);
+bool is_space(char *buff);
+int _isspace(int ch);
 
 #endif
